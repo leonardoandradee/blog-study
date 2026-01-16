@@ -1,0 +1,135 @@
+header {
+  position: sticky;
+  top: 0;
+  width: 100%;
+  height: 8rem;
+  display: flex;
+  align-items: center;
+  background-color: rgba(15, 12, 27, 0.5);
+  backdrop-filter: blur(4rem);
+  z-index: 10;
+  .container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    nav {
+      max-width: 83.2rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex: 1;
+      ul {
+        display: flex;
+        align-items: center;
+        li {
+          &:not(:first-child) {
+            margin-left: 6.4rem;
+          }
+        }
+      }
+      .hamburger {
+        margin-left: 2rem;
+        display: none;
+        .hamburger-inner,
+        .hamburger-inner::before,
+        .hamburger-inner::after {
+          width: 3.2rem;
+          height: 0.2rem;
+          border-radius: 0.2rem;
+          background-color: var(--white);
+        }
+      }
+    }
+  }
+  .menu-mobile {
+    position: absolute;
+    top: 80px;
+    width: 100%;
+    height: calc(60vh - 80px);
+    background-color: rgba(15, 12, 27, 1);
+    border-bottom: 0.2rem solid var(--pink);
+    backdrop-filter: blur(4rem);
+    transform: translateY(-30%);
+    opacity: 0;
+    transition: all 0.3s ease;
+    padding: 4rem 1.6rem;
+    z-index: -2;
+    nav {
+      ul {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin-bottom: 4rem;
+        li {
+          .item-categorie {
+            padding: 2rem 0;
+            img {
+              width: 3.2rem;
+            }
+            span {
+              font-size: 2rem;
+            }
+          }
+        }
+      }
+      .search {
+        max-width: 100%;
+        height: 5.6rem;
+        input {
+          font-size: 1.6rem;
+        }
+        button {
+          width: 5.6rem;
+          height: 5.6rem;
+        }
+      }
+    }
+  }
+  @media (max-width: 1100px) {
+    .container {
+      nav {
+        max-width: 75%;
+      }
+    }
+  }
+  @media (max-width: 991px) {
+    .container {
+      nav {
+        max-width: 100%;
+        justify-content: flex-end;
+        ul {
+          display: none;
+        }
+        .hamburger {
+          display: block;
+        }
+      }
+    }
+  }
+  @media (max-width: 568px) {
+    .container {
+      .logo {
+        max-width: 13rem;
+      }
+      nav {
+        .search {
+          display: none;
+        }
+        .hamburger {
+          margin-left: 0;
+          padding: 0;
+        }
+      }
+    }
+  }
+}
+
+.menu-opened {
+  header {
+    .menu-mobile {
+      transform: translateY(0);
+      opacity: 1;
+      transition: all 0.3s ease;
+    }
+  }
+}
